@@ -169,7 +169,7 @@ module.exports = function (options) {
         if (iface.bindStatus.catchAll) {
           iface.bindStatus.address = isIPV4 ? '0.0.0.0' : '::';
         } else {
-          iface.bindStatus.address = (isIPV4 ? MDNS_IPV4 : MDNS_IPV6);
+          iface.bindStatus.address = iface.address;
         }
         iface.socketRecv.bind(MDNS_PORT, iface.bindStatus.address + (isIPV4 ? '' : '%' + iface.name));
       });
